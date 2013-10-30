@@ -69,9 +69,8 @@
             }
     
             $returnArray = array();
-            $i = 0;
             while ($row = $result->fetch_assoc()) {
-                $returnArray[$i] = $row; $i++;
+                $returnArray[] = $row;
             }
     
             return $returnArray;
