@@ -1,0 +1,25 @@
+{
+    "name": "tyrola/sdc",
+    "description": "A very simple mysqli database lib",
+    "type": "library",
+    "keywords": ["mysqli", "sdc", "simple"],
+    "homepage": "https://github.com/BirknerAlex/SimpleDatabaseConnector",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "BirknerAlex",
+            "email": "alex.birkner@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "autoload": {
+        "files": ["DatabaseConnector.php"]
+    }
+}
