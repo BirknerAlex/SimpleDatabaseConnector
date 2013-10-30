@@ -20,6 +20,6 @@
         }
     },
     "autoload": {
-        "files": ["DatabaseConnector.php"]
+        "files": ["src/DatabaseConnector.php"]
     }
 }
