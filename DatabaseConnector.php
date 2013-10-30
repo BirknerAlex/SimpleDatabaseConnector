@@ -65,7 +65,7 @@
             $result = $this->query($query);
     
             if (!($result instanceof mysqli_result)) {
-                throw new Exception("Query invalide.");
+                throw new Exception("Query invalid.");
             }
     
             $returnArray = array();
