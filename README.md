@@ -65,8 +65,8 @@ $sql = "SELECT
         WHERE
             `id` = '1'";
 
-$user = $sdc->getOne($sql);
+$name = $sdc->getOne($sql);
 
-echo $user["name"];
+echo $name;
 
 ```
