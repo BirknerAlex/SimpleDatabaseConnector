@@ -85,6 +85,9 @@
         public function getOne($sql)
         {
             $query = $this->getAll($sql);
+            
+            if (count($query) == 0) return null;
+            
             foreach ($query[0] as $value) {
                 return $value;
     
