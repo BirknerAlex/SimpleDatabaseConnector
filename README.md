@@ -50,6 +50,27 @@ foreach ($entries as $entry) {
 
 ```
 
+getFirst() Example: 
+
+```
+<?php
+
+$db = new mysqli("localhost", "dbUser", "dbPassword", "dbName");
+$sdc = new DatabaseConnector($db);
+
+$sql = "SELECT
+            `name`
+        FROM
+            `table`
+        LIMIT
+            `10`";
+
+$entry = $sdc->getFirst($sql);
+
+echo $entry["name"];
+
+```
+
 getOne() Example:
 
 ```
