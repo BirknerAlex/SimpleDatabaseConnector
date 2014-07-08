@@ -10,15 +10,13 @@
      * @license http://opensource.org/licenses/gpl-license.php GNU Public License
      */
        
-    class DatabaseConnector
-    {
+    class DatabaseConnector {
         /**
          * @var mysqli
          */
         private $db;
     
-        public function __construct(mysqli $db)
-        {
+        public function __construct(mysqli $db) {
             $this->db = $db;
         }
     
@@ -28,8 +26,7 @@
          * @param string $query
          * @return mysqli_result
          */
-        public function query($query)
-        {
+        public function query($query) {
             return $this->db->query($query);
         }
     
@@ -39,8 +36,7 @@
          * @param string $string
          * @return string
          */
-        public function quote($string)
-        {
+        public function quote($string) {
             return "'".$this->db->real_escape_string($string)."'";
         }
     
@@ -49,8 +45,7 @@
          *
          * @return string
          */
-        public function getTime()
-        {
+        public function getTime() {
             return date("Y-m-d G:i:s", time());
         }
     
@@ -60,8 +55,7 @@
          * @param string $query
          * @return array
          */
-        public function getAll($query)
-        {
+        public function getAll($query) {
             $result = $this->query($query);
     
             if (!($result instanceof mysqli_result)) {
@@ -82,16 +76,27 @@
          * @param string $sql
          * @return mixed
          */
-        public function getOne($sql)
-        {
+        public function getOne($sql) {
             $query = $this->getAll($sql);
             
             if (count($query) == 0) return null;
             
             foreach ($query[0] as $value) {
                 return $value;
-    
             }
+        }
+        
+        /**
+         * Reads only the first row from the database
+         *
+         * @param string $sql
+         * @return mixed
+         */
+        public function getFirst($sql) {
+            $query = $this->getAll($sql);
+            
+            if (count($query) == 0) return null;
+            return $query[0];
         }
     }
     
