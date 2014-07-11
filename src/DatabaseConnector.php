@@ -46,7 +46,7 @@
          * @param string $string
          * @return string
          */
-        public function quote($string) {
+        public function escape($string) {
             return $this->db->real_escape_string($string);
         }
     
