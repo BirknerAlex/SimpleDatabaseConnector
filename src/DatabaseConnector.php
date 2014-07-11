@@ -31,13 +31,23 @@
         }
     
         /**
-         * Quotes the string for the database
+         * Quotes and escapes the string for the database
          *
          * @param string $string
          * @return string
          */
         public function quote($string) {
             return "'".$this->db->real_escape_string($string)."'";
+        }
+        
+        /**
+         * Only escapes the string for the database
+         *
+         * @param string $string
+         * @return string
+         */
+        public function quote($string) {
+            return $this->db->real_escape_string($string);
         }
     
         /**
