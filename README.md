@@ -8,7 +8,7 @@ Simple PHP Database Connector
 
 query() Example: 
 
-```
+``` php
 <?php
 
 $db = new mysqli("localhost", "dbUser", "dbPassword", "dbName");
@@ -29,7 +29,7 @@ $sdc->query($sql);
 
 getAll() Example: 
 
-```
+``` php
 <?php
 
 $db = new mysqli("localhost", "dbUser", "dbPassword", "dbName");
@@ -52,7 +52,7 @@ foreach ($entries as $entry) {
 
 getFirst() Example: 
 
-```
+``` php
 <?php
 
 $db = new mysqli("localhost", "dbUser", "dbPassword", "dbName");
@@ -73,7 +73,7 @@ echo $entry["name"];
 
 getOne() Example:
 
-```
+``` php
 <?php
 
 $db = new mysqli("localhost", "dbUser", "dbPassword", "dbName");
