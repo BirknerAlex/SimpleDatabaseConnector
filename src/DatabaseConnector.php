@@ -60,6 +60,15 @@ class DatabaseConnector {
     }
 
     /**
+     * DateTime object in mysql format
+     *
+     * @return string
+     */
+    public function convertTime(DateTime $dateTime) {
+        return date("Y-m-d G:i:s", $dateTime->getTimestamp());
+    }
+
+    /**
      * Returns the result as array
      *
      * @param string $query
