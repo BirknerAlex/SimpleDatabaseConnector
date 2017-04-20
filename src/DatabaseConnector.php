@@ -116,7 +116,7 @@ class DatabaseConnector {
 
         if (count($query) == 0) return null;
 
-        $result = [];
+        $result = array();
         foreach ($query as $_res) {
             $result[array_shift($_res)] = array_shift($_res);
         }
