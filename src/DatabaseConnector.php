@@ -16,8 +16,21 @@ class DatabaseConnector {
      */
     private $db;
 
-    public function __construct(mysqli $db) {
+    public function __construct(mysqli $db, $logging = false) {
         $this->db = $db;
+        $this->enableLogging = $logging;
+        $this->logs = array();
+    }
+
+    /**
+     * Enable or disable logging
+     *
+     * @param bool $logging
+     * @return $this
+     */
+    public function enableLogging($logging = true) {
+        $this->enableLogging = $logging;
+        return $this;
     }
 
     /**
@@ -27,7 +40,25 @@ class DatabaseConnector {
      * @return mysqli_result
      */
     public function query($query) {
-        return $this->db->query($query);
+        $startMicrotime = microtime();
+        $result =  $this->db->query($query);
+        if ($this->enableLogging) {
+            $this->logs[] = array(
+                "time" => microtime() - $startMicrotime,
+                "query" => $query,
+                "start" => date("Y-m-d H:i:s")
+            );
+        }
+        return $result;
+    }
+
+    /**
+     * Return all logs.
+     *
+     * @return array
+     */
+    public function getLogs() {
+        return $this->logs;
     }
 
     /**
